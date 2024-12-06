@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Productos - Inspirada en el Quetzal</title>
+    <style>
+        /* Estilo general para el cuerpo */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8f5e9; /* Verde claro de fondo */
+        }
+
+        /* Estilo para el encabezado con animación */
+        header {
+            background: linear-gradient(270deg, #018576, #4fc155, #d32f2f); /* Degradado inicial */
+            background-size: 800% 800%; /* Tamaño extendido para la animación */
+            animation: coloresQuetzal 10s infinite; /* Animación infinita */
+            color: white; /* Texto en blanco */
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Definición de la animación */
+        @keyframes coloresQuetzal {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 50%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Diseño de rejilla para los productos */
+        .productos {
+            display: grid;      
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        /* Estilo para cada tarjeta de producto */
+        .producto {
+            background-color: #ffffff; /* Fondo blanco para destacar los productos */
+            border: 2px solid #51c157; /* Verde medio */
+            border-radius: 8px;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        /* Cambia el color y escala cuando el ratón pasa sobre la tarjeta */
+        .producto:hover {
+            background-color: #51c157;
+            transform: scale(1.05);
+            color: white;
+        }
+
+        /* Estilo para la imagen de los productos */
+        .producto img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Estilo para el título del producto */
+        .producto h3 {
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+            color: #00695c;
+        }
+
+        /* Estilo para la descripción del producto */
+        .producto p {
+            color: #424242;
+            font-size: 0.9rem;
+        }
+
+        /* Estilo para el pie de página (footer) */
+        footer {
+            background-color: #00695c;
+            color: #ffeb3b;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado de la página -->
+    <header>
+        <h1>Quetzal Tecnology</h1>
+    </header>
+    
+    <!-- Sección principal que contiene los productos -->
+    <main>
+        <div class="productos">
+            <!-- Producto 1 -->
+            <div class="producto">
+                <img src="411e4adf-c7a1-4005-82fa-825c39521cbd.webp" alt="Producto 1">
+                <h3>Fuente de poder</h3>
+                <p>Fuente de poder gaming con temática de Quetzal.</p>
+            </div>
+            <!-- Producto 2 -->
+            <div class="producto">
+                <img src="DALL·E 2024-12-05 18.13.06 - A desktop PC motherboard inspired by the Quetzal bird theme. The design features vibrant green and blue accents on the circuit board, with feather-lik.webp" alt="Producto 2">
+                <h3>Placa madre</h3>
+                <p>Placa base para pc con tematica de Quetzal.</p>
+            </div>
+            <!-- Producto 3 -->
+            <div class="producto">
+                <img src="https://via.placeholder.com/200" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p>Descripción breve del producto.</p>
+            </div>
+            <!-- Producto 4 -->
+            <div class="producto">
+                <img src="https://via.placeholder.com/200" alt="Producto 4">
+                <h3>Producto 4</h3>
+                <p>Descripción breve del producto.</p>
+            </div>
+            <!-- Producto 5 -->
+            <div class="producto">
+                <img src="https://via.placeholder.com/200" alt="Producto 5">
+                <h3>Producto 5</h3>
+                <p>Descripción breve del producto.</p>
+            </div>
+            <!-- Producto 6 -->
+            <div class="producto">
+                <img src="https://via.placeholder.com/200" alt="Producto 6">
+                <h3>Producto 6</h3>
+                <p>Descripción breve del producto.</p>
+            </div>
+        </div>
+    </main>    
+    
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Tienda de Productos</p>
+    </footer>
+</body>
+</html>
