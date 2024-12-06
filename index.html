@@ -48,7 +48,10 @@
             text-align: center;
             padding: 1rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative; /* Para posicionar el contenido expandido relativo a cada producto */
+            overflow: hidden; /* Evita que se desborde el contenido */
             transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
         }
 
         /* Cambia el color y escala cuando el ratón pasa sobre la tarjeta */
@@ -77,6 +80,26 @@
             font-size: 0.9rem;
         }
 
+        /* Detalles adicionales ocultos por defecto */
+        .producto .detalles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(81, 193, 87, 0.9); /* Fondo semitransparente */
+            padding: 1rem;
+            display: none; /* Ocultamos el contenido por defecto */
+            z-index: 1; /* Aseguramos que esté por encima del producto */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            overflow-y: auto; /* Asegura que si el contenido es muy grande, se pueda desplazar */
+        }
+
+        /* Estilo cuando el producto está expandido */
+        .producto.expandido .detalles {
+            display: block; /* Mostramos el contenido expandido */
+        }
+
         /* Estilo para el pie de página (footer) */
         footer {
             background-color: #00695c;
@@ -101,36 +124,54 @@
                 <img src="411e4adf-c7a1-4005-82fa-825c39521cbd.webp" alt="Producto 1">
                 <h3>Fuente de poder</h3>
                 <p>Fuente de poder gaming con temática de Quetzal.</p>
+                <div class="detalles">
+                    <p><strong>Detalles:</strong> Esta fuente de poder tiene un diseño inspirado en las plumas del quetzal, con una eficiencia energética de 80+ Bronze, ideal para sistemas de alto rendimiento.</p>
+                </div>
             </div>
             <!-- Producto 2 -->
             <div class="producto">
                 <img src="DALL·E 2024-12-05 18.13.06 - A desktop PC motherboard inspired by the Quetzal bird theme. The design features vibrant green and blue accents on the circuit board, with feather-lik.webp" alt="Producto 2">
                 <h3>Placa madre</h3>
                 <p>Placa base para pc con tematica de Quetzal.</p>
+                <div class="detalles">
+                    <p><strong>Detalles:</strong> Esta placa base está diseñada para ofrecer un rendimiento óptimo, con detalles inspirados en el Quetzal, incluidos toques de color verde y azul.</p>
+                </div>
             </div>
             <!-- Producto 3 -->
             <div class="producto">
-                <img src="https://via.placeholder.com/200" alt="Producto 3">
-                <h3>Producto 3</h3>
-                <p>Descripción breve del producto.</p>
+                <img src="DALL·E 2024-12-05 20.57.17 - Create a set of input peripherals with a Quetzal-themed design. Include a keyboard, mouse, and headset, each featuring intricate Aztec and Mayan-inspi.webp" alt="Producto 3">
+                <h3>Kit perifericos gamer</h3>
+                <p>Perifericos gamer con tematica de Quetzal.</p>
+                <div class="detalles">
+                    <p><strong>Detalles:</strong> Kit de audifonos, teclado y mouse con tematica de Quetzal edicion premium.</p>
+                </div>
             </div>
             <!-- Producto 4 -->
             <div class="producto">
                 <img src="https://via.placeholder.com/200" alt="Producto 4">
                 <h3>Producto 4</h3>
                 <p>Descripción breve del producto.</p>
+                <div class="detalles">
+                    <p><strong>Detalles:</strong> Más información sobre el producto 4.</p>
+                </div>
             </div>
             <!-- Producto 5 -->
             <div class="producto">
                 <img src="https://via.placeholder.com/200" alt="Producto 5">
                 <h3>Producto 5</h3>
                 <p>Descripción breve del producto.</p>
+                <div class="detalles">
+                    <p><strong>Detalles:</strong> Más información sobre el producto 5.</p>
+                </div>
             </div>
             <!-- Producto 6 -->
             <div class="producto">
                 <img src="https://via.placeholder.com/200" alt="Producto 6">
                 <h3>Producto 6</h3>
                 <p>Descripción breve del producto.</p>
+                <div class="detalles">
+                    <p><strong>Detalles:</strong> Más información sobre el producto 6.</p>
+                </div>
             </div>
         </div>
     </main>    
@@ -139,5 +180,21 @@
     <footer>
         <p>&copy; 2024 Tienda de Productos</p>
     </footer>
+
+    <script>
+        // Agregar evento de clic para expandir o contraer el producto
+        document.querySelectorAll('.producto').forEach(producto => {
+            producto.addEventListener('click', () => {
+                // Cerrar todos los productos que estén abiertos
+                document.querySelectorAll('.producto').forEach(p => {
+                    if (p !== producto) {
+                        p.classList.remove('expandido');
+                    }
+                });
+                // Alternar el estado expandido para el producto clicado
+                producto.classList.toggle('expandido');
+            });
+        });
+    </script>
 </body>
 </html>
