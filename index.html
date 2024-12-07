@@ -70,14 +70,14 @@
         /* Estilo para el título del producto */
         .producto h3 {
             margin: 0.5rem 0;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #00695c;
         }
 
         /* Estilo para la descripción del producto */
         .producto p {
             color: #424242;
-            font-size: 0.9rem;
+            font-size: 1.2rem;
         }
 
         /* Detalles adicionales ocultos por defecto */
@@ -98,6 +98,47 @@
         /* Estilo cuando el producto está expandido */
         .producto.expandido .detalles {
             display: block; /* Mostramos el contenido expandido */
+        }/* Diseño de rejilla para los productos */
+
+        /* Prodructo agotado*/
+        /* Estilo para cada tarjeta de producto */
+        .productoA{
+            background-color: #ffffff; /* Fondo blanco para destacar los productos */
+            border: 2px solid #c15151; /* Verde medio */
+            border-radius: 8px;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative; /* Para posicionar el contenido expandido relativo a cada producto */
+            overflow: hidden; /* Evita que se desborde el contenido */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Cambia el color y escala cuando el ratón pasa sobre la tarjeta */
+        .productoA:hover {
+            background-color: #c15151;
+            transform: scale(1.05);
+            color: white;
+        }
+
+        /* Estilo para la imagen de los productos */
+        .productoA img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Estilo para el título del producto */
+        .productoA h3 {
+            margin: 0.5rem 0;
+            font-size: 1.3rem;
+            color: #09322d;
+        }
+
+        /* Estilo para la descripción del producto */
+        .productoA p {
+            color: #424242;
+            font-size: 1.2rem;
         }
 
         /* Estilo para el pie de página (footer) */
@@ -124,54 +165,59 @@
                 <img src="411e4adf-c7a1-4005-82fa-825c39521cbd.webp" alt="Producto 1">
                 <h3>Fuente de poder</h3>
                 <p>Fuente de poder gaming con temática de Quetzal.</p>
-                <div class="detalles">
+                <button class="detalles"> 
                     <p><strong>Detalles:</strong> Esta fuente de poder tiene un diseño inspirado en las plumas del quetzal, con una eficiencia energética de 80+ Bronze, ideal para sistemas de alto rendimiento.</p>
-                </div>
+                </button>
             </div>
             <!-- Producto 2 -->
             <div class="producto">
                 <img src="DALL·E 2024-12-05 18.13.06 - A desktop PC motherboard inspired by the Quetzal bird theme. The design features vibrant green and blue accents on the circuit board, with feather-lik.webp" alt="Producto 2">
                 <h3>Placa madre</h3>
                 <p>Placa base para pc con tematica de Quetzal.</p>
-                <div class="detalles">
+                <button class="detalles">
                     <p><strong>Detalles:</strong> Esta placa base está diseñada para ofrecer un rendimiento óptimo, con detalles inspirados en el Quetzal, incluidos toques de color verde y azul.</p>
-                </div>
+                </button>
             </div>
             <!-- Producto 3 -->
             <div class="producto">
                 <img src="DALL·E 2024-12-05 20.57.17 - Create a set of input peripherals with a Quetzal-themed design. Include a keyboard, mouse, and headset, each featuring intricate Aztec and Mayan-inspi.webp" alt="Producto 3">
                 <h3>Kit perifericos gamer</h3>
                 <p>Perifericos gamer con tematica de Quetzal.</p>
-                <div class="detalles">
+                <button class="detalles">
                     <p><strong>Detalles:</strong> Kit de audifonos, teclado y mouse con tematica de Quetzal edicion premium.</p>
-                </div>
+                </button>
             </div>
             <!-- Producto 4 -->
             <div class="producto">
                 <img src="DALL·E 2024-12-05 22.21.11 - A PC case with a Quetzal-themed design. The case is adorned with vibrant Aztec and Mayan-inspired patterns, featuring emerald green, gold, and turquoi.webp" alt="Producto 4">
                 <h3>Gabinete de Pc</h3>
                 <p>Gabinete inspirado en el Quetzal.</p>
-                <div class="detalles">
+                <button class="detalles">
                     <p><strong>Detalles:</strong> Gabinete espacioso con diseño de quetzal con espacio suficiente para tener los mejores componentes del mercado.</p>
-                </div>
+                </button>
             </div>
             <!-- Producto 5 -->
             <div class="producto">
-                <img src="https://via.placeholder.com/200" alt="Producto 5">
-                <h3>Producto 5</h3>
-                <p>Descripción breve del producto.</p>
-                <div class="detalles">
-                    <p><strong>Detalles:</strong> Más información sobre el producto 5.</p>
-                </div>
+                <img src="Imagen de WhatsApp 2024-12-06 a las 16.11.15_03352a0c.webp" alt="Producto 5">
+                <h3>Mouse</h3>
+                <p>Mouse gama alta exelente calidad.</p>
+                <button class="detalles">
+                    <p><strong>Detalles:</strong> Mouse gama alta con sensor optico, DPI: 16,000 a 20,000 DPIFrecuencia de sondeo: 1000 Hz (1ms). Tiempo de respuesta: menor a 1 ms para una latencia mínima.</p>
+                </button>
             </div>
             <!-- Producto 6 -->
             <div class="producto">
                 <img src="https://via.placeholder.com/200" alt="Producto 6">
                 <h3>Producto 6</h3>
                 <p>Descripción breve del producto.</p>
-                <div class="detalles">
+                <button class="detalles">
                     <p><strong>Detalles:</strong> Más información sobre el producto 6.</p>
-                </div>
+                </button>
+            </div>
+            <div class="productoA">
+                <img src="Imagen de WhatsApp 2024-11-06 a las 11.53.01_bbf82d08.webp" alt="Producto 7">
+                <h3>Gabinete gamer tematica de Dia de Muertos</h3>
+                <p>Lamentablemente este producto esta agotado no se sabe si volvera a estar disponible.</p>
             </div>
         </div>
     </main>    
