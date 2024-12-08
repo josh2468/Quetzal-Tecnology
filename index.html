@@ -4,23 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Productos - Inspirada en el Quetzal</title>
-    <style>
-        /* Estilo general para el cuerpo */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e8f5e9; 
+    <style>/* Estilo para la barra de navegación fija */
+    /* Estilo para el título principal */
+        .titulo-seccion.grande {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #018576; /* Un verde oscuro para el título principal */
+            margin-bottom: 1rem;
+            text-transform: uppercase; /* Mayúsculas para darle más énfasis */
+            letter-spacing: 2px; /* Espaciado entre letras para hacerlo más moderno */
         }
 
-        /* Estilo para el encabezado con animación */
-        header {
+        /* Estilo para el subtítulo */
+        .subtitulo-seccion {
+            font-size: 2rem;
+            color: #4fc155; /* Verde claro para el subtítulo */
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Estilo para los párrafos de introducción */
+        .texto-intro {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #555; /* Gris oscuro para los párrafos */
+            margin-bottom: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto; /* Centrado del texto */
+            text-align: justify;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             background: linear-gradient(270deg, #018576, #4fc155, #d32f2f); /* Degradado inicial */
             background-size: 800% 800%; /* Tamaño extendido para la animación */
             animation: coloresQuetzal 10s infinite; /* Animación infinita */
-            color: white; /* Texto en blanco */
-            padding: 1rem;
-            text-align: center;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: left; /* Espaciado entre los elementos */
+            padding: 0.5rem 1rem; /* Espaciado interno más generoso */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+            color: white;
+            flex-wrap: wrap;
+            font-family: 'Roboto', sans-serif; /* Tipografía moderna */
+        }
+        
+        /* Logo o título dentro del nav */
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ffeb3b; /* Amarillo brillante para resaltar el logo */
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+            margin-right: 0.2rem; /* Separación del logo con los demás elementos */
+        }
+
+        nav .logo:hover {
+            color: #ffffff; /* Cambia el color del logo al pasar el ratón */
+            cursor: pointer;
         }
 
         /* Definición de la animación */
@@ -30,6 +77,94 @@
             50% { background-position: 100% 50%; }
             75% { background-position: 50% 50%; }
             100% { background-position: 0% 50%; }
+        }
+        
+        /* Ajuste para el resto de la página */
+        body {
+            margin: 0;
+            padding-top: 5rem; /* Compensa la altura del nav fijo */
+        }
+        
+        /* Estilo para el input de búsqueda */
+        #busqueda {
+            padding: 0.6rem 3rem;
+            width: 170px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            margin-right: 0.5rem; /* Espaciado entre la búsqueda y el botón */
+        }
+        #busqueda:focus {
+            border-color: #4fc155; /* Color de enfoque */
+            box-shadow: 0 0 8px rgba(79, 193, 85, 0.8); /* Resaltado suave */
+        }
+        button {
+            padding: 0.5rem 1.2rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #ff2e2e;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-right: 0.7rem;
+        }
+
+        button:hover {
+            background-color: #c61616;
+            transform: scale(1.05);
+        }
+
+        /* Menú de navegación */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem; /* Espaciado más grande entre los enlaces */
+            margin: 0;
+            margin-right: 1rem;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        /* Media Query para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .imagen-inicio {
+                max-width: 100%;  
+            }
+            nav {
+                padding: 0.5rem 1rem; /* Ajusta el padding para pantallas pequeñas */
+                flex-direction: column; /* Cambia la disposición de los elementos a columna */
+                align-items: flex-start; /* Alinea los elementos a la izquierda */
+                justify-content: center; /* Centra los elementos verticalmente */
+            }
+            #busqueda {
+                width: 100%; /* Hacer el campo de búsqueda más grande en pantallas pequeñas */
+                margin-bottom: 0.5rem; /* Añade un poco de espacio abajo del input */
+            }
+            button {
+                width: 100%; /* Hace que el botón de búsqueda ocupe todo el ancho */
+            }
+            nav ul {
+                flex-direction: column; /* Cambia los enlaces a una columna */
+                gap: 0.5rem; /* Reduce el espacio entre los enlaces */
+            }
+        }
+        section {
+            padding: 2rem;
+            margin: 1rem;
         }
 
         /* Diseño de rejilla para los productos */
@@ -62,21 +197,21 @@
         }
 
         /* Estilo para la imagen de los productos */
-        .producto img {
+        .producto img, .productoA img {
             max-width: 100%;
             border-radius: 8px;
         }
 
         /* Estilo para el título del producto */
-        .producto h3 {
+        .producto h3, .productoA h3 {
             margin: 0.5rem 0;
             font-size: 1.3rem;
-            color: #00695c;
+            color: #000000;
         }
 
         /* Estilo para la descripción del producto */
-        .producto p {
-            color: #424242;
+        .producto p, .productoA p {
+            color: #222121;
             font-size: 1.2rem;
         }
 
@@ -104,7 +239,7 @@
         /* Estilo para cada tarjeta de producto */
         .productoA{
             background-color: #ffffff; /* Fondo blanco para destacar los productos */
-            border: 2px solid #c15151; /* Verde medio */
+            border: 2px solid #f15252;
             border-radius: 8px;
             text-align: center;
             padding: 1rem;
@@ -122,25 +257,43 @@
             color: white;
         }
 
-        /* Estilo para la imagen de los productos */
-        .productoA img {
-            max-width: 100%;
-            border-radius: 8px;
+        #Redes {
+            background-color: #f4f4f4; /* Fondo suave */
+            padding: 3rem 1rem;
+            text-align: center; /* Centra el contenido */
+        }
+        /* Contenedor de los iconos de las redes sociales */
+        .redes-container {
+            display: flex;
+            justify-content: center; /* Centra los iconos horizontalmente */
+            gap: 1.5rem; /* Espacio entre los iconos */
+        }
+        .redes-icono {
+            display: inline-block;
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        /* Estilo para el título del producto */
-        .productoA h3 {
-            margin: 0.5rem 0;
-            font-size: 1.3rem;
-            color: #09322d;
+        /* Estilos individuales para cada red social */
+        .facebook {
+            background-color: #3b5998;
         }
 
-        /* Estilo para la descripción del producto */
-        .productoA p {
-            color: #424242;
-            font-size: 1.2rem;
+        .instagram {
+            background-color: #e4405f;
         }
 
+        .tiktok {
+            background-color: #202a3c; /* Color de fondo para TikTok */
+        }
+        .redes-icono:hover {
+            transform: scale(1.1); /* Aumenta el tamaño del icono */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Agrega sombra */
+        }
         /* Estilo para el pie de página (footer) */
         footer {
             background-color: #00695c;
@@ -148,19 +301,69 @@
             text-align: center;
             padding: 1rem;
             margin-top: 1rem;
+            
+        }#inicio {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        /* Estilo para la imagen */
+        .imagen-inicio {
+            width: 100%;               /* Hace que la imagen ocupe todo el ancho disponible */
+            max-width: 600px;          /* Limita el tamaño máximo de la imagen para que no sea demasiado grande */
+            height: auto;              /* Mantiene la proporción de la imagen */
+            border-radius: 10px;       /* Bordes redondeados para darle un estilo más suave */
+            margin: 1.5rem 0;          /* Espaciado vertical alrededor de la imagen */
         }
     </style>
 </head>
 <body>
-    <!-- Encabezado de la página -->
-    <header>
-        <h1>Quetzal Tecnology</h1>
-    </header>
+    <!-- Barra de Navegación -->
+    <nav>
+        <div class="logo">Quetzal Technologies</div>
+        
+        <input type="text" id="busqueda" placeholder="Buscar productos...">
+        <button onclick="buscar()">
+            Buscar
+        </button>
+
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#Redes">Redes Sociales</a></li>
+        </ul>
+    </nav>              
     
+    <section id="inicio">
+        <h1 class="titulo-seccion grande">Inicio</h1>
+        <h2 class="subtitulo-seccion">Quetzal Technologies</h2>
+        <img src="Quetzal Tecnology.webp">
+        <p class="texto-intro">
+            Empresa Mexicana dedicada a la producción y distribución de componentes y accesorios de PC.
+        </p>
+        <p class="texto-intro">
+            Nuestra visión es poder proveer a México de diseños representativos, al igual que ofrecer una opción más económica y local de productos electrónicos.
+        </p>
+    </section>
+
+
+
     <!-- Sección principal que contiene los productos -->
-    <main>
+    <section id = "productos">
+
+        <h1 class="titulo-seccion grande">Productos</h1>
+
         <div class="productos">
-            <!-- Producto 1 -->
+            <!-- Producto 6 -->
+            <div class="producto">
+                <img src="Captura de pantalla 2024-12-07 174742.webp" alt="Producto 6">
+                <h3>Gabinete para PC</h3>
+                <p>Gabinete gamer tematica de Navidad.</p>
+                <button class="detalles">
+                    <p><strong>Detalles:</strong> Gabinete para PC con tematica navideña solo por tiempo limitado.</p>
+                </button>
+            </div>
+
             <div class="producto">
                 <img src="411e4adf-c7a1-4005-82fa-825c39521cbd.webp" alt="Producto 1">
                 <h3>Fuente de poder</h3>
@@ -171,7 +374,7 @@
             </div>
             <!-- Producto 2 -->
             <div class="producto">
-                <img src="DALL·E 2024-12-05 18.13.06 - A desktop PC motherboard inspired by the Quetzal bird theme. The design features vibrant green and blue accents on the circuit board, with feather-lik.webp" alt="Producto 2">
+                <img src="DALL·E 2024-12-05 18.13.06 - A desktop PC motherboard inspired by the Quetzal bird theme. The design features vibrant green and blue accents on the circuit board, with feather-lik.webp">
                 <h3>Placa madre</h3>
                 <p>Placa base para pc con tematica de Quetzal.</p>
                 <button class="detalles">
@@ -180,7 +383,7 @@
             </div>
             <!-- Producto 3 -->
             <div class="producto">
-                <img src="DALL·E 2024-12-05 20.57.17 - Create a set of input peripherals with a Quetzal-themed design. Include a keyboard, mouse, and headset, each featuring intricate Aztec and Mayan-inspi.webp" alt="Producto 3">
+                <img src="DALL·E 2024-12-05 20.57.17 - Create a set of input peripherals with a Quetzal-themed design. Include a keyboard, mouse, and headset, each featuring intricate Aztec and Mayan-inspi.webp">
                 <h3>Kit perifericos gamer</h3>
                 <p>Perifericos gamer con tematica de Quetzal.</p>
                 <button class="detalles">
@@ -189,7 +392,7 @@
             </div>
             <!-- Producto 4 -->
             <div class="producto">
-                <img src="DALL·E 2024-12-05 22.21.11 - A PC case with a Quetzal-themed design. The case is adorned with vibrant Aztec and Mayan-inspired patterns, featuring emerald green, gold, and turquoi.webp" alt="Producto 4">
+                <img src="DALL·E 2024-12-05 22.21.11 - A PC case with a Quetzal-themed design. The case is adorned with vibrant Aztec and Mayan-inspired patterns, featuring emerald green, gold, and turquoi.webp">
                 <h3>Gabinete de Pc</h3>
                 <p>Gabinete inspirado en el Quetzal.</p>
                 <button class="detalles">
@@ -198,26 +401,36 @@
             </div>
             <!-- Producto 5 -->
             <div class="producto">
-                <img src="Imagen de WhatsApp 2024-12-06 a las 16.11.15_03352a0c.webp" alt="Producto 5">
+                <img src="Imagen de WhatsApp 2024-12-06 a las 16.11.15_03352a0c.webp">
                 <h3>Mouse</h3>
                 <p>Mouse gama alta exelente calidad.</p>
                 <button class="detalles">
                     <p><strong>Detalles:</strong> Mouse gama alta con sensor optico, DPI: 16,000 a 20,000 DPIFrecuencia de sondeo: 1000 Hz (1ms). Tiempo de respuesta: menor a 1 ms para una latencia mínima.</p>
                 </button>
             </div>
-            <!-- Producto 6 -->
+            <!-- Producto 7 -->
             <div class="productoA">
-                <img src="Imagen de WhatsApp 2024-11-06 a las 11.47.56_ccf079c9.webp" alt="Producto 7">
+                <img src="Imagen de WhatsApp 2024-11-06 a las 11.47.56_ccf079c9.webp">
                 <h3>Gabinete gamer tematica de Halloween</h3>
                 <p>Lamentablemente este producto esta agotado no se sabe si volvera a estar disponible.</p>
             </div>
+            <!-- Producto 8 -->
             <div class="productoA">
-                <img src="Imagen de WhatsApp 2024-11-06 a las 11.53.01_bbf82d08.webp" alt="Producto 7">
+                <img src="Imagen de WhatsApp 2024-11-06 a las 11.53.01_bbf82d08.webp">
                 <h3>Gabinete gamer tematica de Dia de Muertos</h3>
                 <p>Lamentablemente este producto esta agotado no se sabe si volvera a estar disponible.</p>
             </div>
         </div>
-    </main>    
+    </section>    
+
+    <section id="Redes">
+        <h1 class="titulo-seccion grande">Redes Sociales</h1>
+        <div class="redes-container">
+            <a href="https://www.facebook.com/" target="_blank" class="redes-icono facebook">Facebook</a>
+            <a href="https://www.instagram.com/" target="_blank" class="redes-icono instagram">Instagram</a>
+            <a href="https://www.tiktok.com/" target="_blank" class="redes-icono tiktok">TikTok</a>
+        </div>
+    </section>
     
     <!-- Pie de página -->
     <footer>
@@ -237,6 +450,25 @@
                 // Alternar el estado expandido para el producto clicado
                 producto.classList.toggle('expandido');
             });
+        });
+        function buscar() {
+        const input = document.getElementById('busqueda').value.toLowerCase();
+        const productos = document.querySelectorAll('.producto');
+        productos.forEach(producto => {
+            const texto = producto.innerText.toLowerCase();
+            producto.style.display = texto.includes(input) ? '' : 'none';
+        });
+        }
+        window.addEventListener('scroll', () => {
+            const secciones = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            let index = secciones.length;
+
+            while (--index && window.scrollY + 50 < secciones[index].offsetTop) {}
+
+            navLinks.forEach(link => link.classList.remove('activo'));
+            navLinks[index]?.classList.add('activo');
         });
     </script>
 </body>
