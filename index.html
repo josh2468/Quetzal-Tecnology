@@ -7,7 +7,7 @@
     <style>/* Estilo para la barra de navegación fija */
     /* Estilo para el título principal */
         .titulo-seccion.grande {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: bold;
             color: #018576; /* Un verde oscuro para el título principal */
             margin-bottom: 1rem;
@@ -27,15 +27,14 @@
         /* Estilo para los párrafos de introducción */
         .texto-intro {
             font-size: 1.3rem;
-            line-height: 1.3; /*         Interlineado más compacto */
-            color: #555; /* Gris     oscuro para los párrafos */
+            line-height: 1.3; /* Interlineado más compacto */
+            color: #555; /* Gris oscuro para los párrafos */
             margin-bottom: 1rem;
             max-width: 600px; /* Ancho más estrecho */
             margin-left: auto;
             margin-right: auto; /* Centrado del texto */
-            text-align: left; /*    Evitar justificación */
-        }
-
+            text-align: left; /* Evitar justificación */
+        }   
         nav {
             position: fixed;
             top: 0;
@@ -279,7 +278,10 @@
             body {
                 padding-top: 8rem; /* Compensa la altura del nav fijo */
             }
-            
+            nav {
+                background: #4fc155; /* Fondo estático para dispositivos pequeños */
+                animation: none; /* Desactiva animación */
+            }
             nav {
                 padding: 0.5rem 1rem; /* Ajusta el padding para pantallas pequeñas */
                 flex-direction: column; /* Cambia la disposición de los elementos a columna */
@@ -383,7 +385,7 @@
                 <h3>Fuente de poder</h3>
                 <p>Fuente de poder gaming con temática de Quetzal.</p>
                 <button class="detalles"> 
-                    <p><strong>Detalles:</strong> Esta fuente de poder tiene un diseño inspirado en las plumas del quetzal, con una eficiencia energética de 80+ Platino, ideal para sistemas de alto rendimiento.</p>
+                    <p><strong>Detalles:</strong> Esta fuente de poder tiene un diseño inspirado en las plumas del quetzal, con una eficiencia energética de 80+ Bronze, ideal para sistemas de alto rendimiento.</p>
                 </button>
             </div>
             <!-- Producto 2 -->
@@ -470,7 +472,7 @@
             const input = document.getElementById('busqueda').value.toLowerCase();
             
             // Selecciona todos los productos
-            const productos = document.querySelectorAll('.producto', '.productoA' );
+            const productos = document.querySelectorAll('.producto');
             
             // Filtra los productos según el valor de búsqueda
             productos.forEach(producto => {
