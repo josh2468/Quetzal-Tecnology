@@ -129,7 +129,7 @@
             padding: 0;
         }
 
-        nav ul li {
+        nav ul li { 
             display: inline;
         }
 
@@ -479,13 +479,23 @@
                 producto.classList.toggle('expandido');
             });
         });
+        let debounceTimer; // Variable para almacenar el temporizador
+
+        // Asignar el evento con debounce
+        document.getElementById('busqueda').addEventListener('input', function () {
+            clearTimeout(debounceTimer); // Limpia cualquier temporizador activo
+            debounceTimer = setTimeout(() => { 
+                buscar(); // Llama a la función buscar después del tiempo especificado
+            }, 1000); // Espera 300ms después de la última pulsación de tecla
+        });
+
         function buscar() {
             // Obtiene el valor de búsqueda
             const input = document.getElementById('busqueda').value.toLowerCase();
-            
+
             // Selecciona todos los productos (incluyendo .producto y .productoA)
             const productos = document.querySelectorAll('.producto, .productoA');
-            
+
             // Filtra los productos según el valor de búsqueda
             productos.forEach(producto => {
                 const texto = producto.innerText.toLowerCase();
@@ -495,12 +505,13 @@
             // Desplaza a la sección de productos
             const seccionProductos = document.getElementById('productos');
             seccionProductos.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave hacia la sección
-            
+
             // Ajustar la posición añadiendo un desplazamiento adicional de 30px
             setTimeout(() => {
                 window.scrollBy(0, 30); // Baja 30px desde la posición actual
-            }, 500); // Espera 500ms para que el desplazamiento suave termine
+            }, 500); // Espera que scrollIntoView termine
         }
+
         window.addEventListener('scroll', () => {
             const secciones = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a');
