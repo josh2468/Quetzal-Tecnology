@@ -258,23 +258,19 @@
         }
 
         /* Estilos individuales para cada red social */
-        .facebook {
-            background-color: #3b5998;
-        }
+        .redes-icono.facebook { background-color: #3b5998; }
+        .redes-icono.instagram { background-color: #e4405f; }
+        .redes-icono.tiktok { background-color: #202a3c; }
 
-        .instagram {
-            background-color: #e4405f;
-        }
-
-        .tiktok {
-            background-color: #202a3c; /* Color de fondo para TikTok */
-        }
         .redes-icono:hover {
             transform: scale(1.1); /* Aumenta el tamaño del icono */
         }
 
         /* Media Query para pantallas pequeñas */
         @media (max-width: 768px) {
+            body {
+                padding-top: 8rem; /* Compensa la altura del nav fijo */
+            }
             nav {
                 background: #4fc155; /* Fondo estático para dispositivos pequeños */
                 animation: none; /* Desactiva animación */
@@ -286,11 +282,11 @@
                 justify-content: center; /* Centra los elementos verticalmente */
             }
             #busqueda {
-                width: 40%; /* Hacer el campo de búsqueda más grande en pantallas pequeñas */
+                width: 70%; /* Hacer el campo de búsqueda más grande en pantallas pequeñas */
                 margin-bottom: 0.5rem; /* Añade un poco de espacio abajo del input */
             }
             button {
-                width: 50%; /* Hace que el botón de búsqueda ocupe todo el ancho */
+                width: 90%; /* Hace que el botón de búsqueda ocupe todo el ancho */
             }   
             nav ul {
                 flex-direction: column; /* Cambia los enlaces a una columna */
@@ -301,7 +297,10 @@
             }
 
             .redes-container {
-                flex-direction: column; /* Cambia los iconos a una columna */
+                display: flex; /* Asegura el uso de flexbox */
+                flex-direction: column; /* Cambia los iconos a disposición de columna */
+                align-items: center; /* Centra los iconos horizontalmente */
+                gap: 1rem; /* Espacio entre los iconos */
             }
 
             .redes-icono {
@@ -339,10 +338,7 @@
     <nav>
         <div class="logo">Quetzal Technologies</div>
         
-        <input type="text" id="busqueda" placeholder="Buscar productos...">
-        <button onclick="buscar()">
-            Buscar
-        </button>
+        <input id="busqueda" type="text" oninput="buscar()" placeholder="Buscar productos...">
 
         <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -468,12 +464,21 @@
             });
         });
         function buscar() {
-        const input = document.getElementById('busqueda').value.toLowerCase();
-        const productos = document.querySelectorAll('.producto');
-        productos.forEach(producto => {
-            const texto = producto.innerText.toLowerCase();
-            producto.style.display = texto.includes(input) ? '' : 'none';
-        });
+            // Obtiene el valor de búsqueda
+            const input = document.getElementById('busqueda').value.toLowerCase();
+            
+            // Selecciona todos los productos
+            const productos = document.querySelectorAll('.producto');
+            
+            // Filtra los productos según el valor de búsqueda
+            productos.forEach(producto => {
+                const texto = producto.innerText.toLowerCase();
+                producto.style.display = texto.includes(input) ? '' : 'none';
+            });
+
+            // Desplaza a la sección de productos
+            const seccionProductos = document.getElementById('productos');
+            seccionProductos.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave hacia la sección
         }
         window.addEventListener('scroll', () => {
             const secciones = document.querySelectorAll('section');
