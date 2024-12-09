@@ -27,7 +27,7 @@
 
         /* Estilo para los párrafos de introducción */
         .texto-intro {
-            font-size: 1.3rem;
+            font-size: 2.7rem;
             line-height: 1.3; /* Interlineado más compacto */
             color: #555; /* Gris oscuro para los párrafos */
             margin-bottom: 1rem;
@@ -270,6 +270,10 @@
         /* Media Query para pantallas pequeñas */
         @media (max-width: 768px) {
             
+            .texto-intro{
+                font-size: 1.3;
+            }
+
             #Img{
                 width: 50%;
                 max-width: 300px;
@@ -479,8 +483,8 @@
             // Obtiene el valor de búsqueda
             const input = document.getElementById('busqueda').value.toLowerCase();
             
-            // Selecciona todos los productos
-            const productos = document.querySelectorAll('.producto');
+            // Selecciona todos los productos (incluyendo .producto y .productoA)
+            const productos = document.querySelectorAll('.producto, .productoA');
             
             // Filtra los productos según el valor de búsqueda
             productos.forEach(producto => {
@@ -491,6 +495,11 @@
             // Desplaza a la sección de productos
             const seccionProductos = document.getElementById('productos');
             seccionProductos.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave hacia la sección
+            
+            // Ajustar la posición añadiendo un desplazamiento adicional de 30px
+            setTimeout(() => {
+                window.scrollBy(0, 30); // Baja 30px desde la posición actual
+            }, 500); // Espera 500ms para que el desplazamiento suave termine
         }
         window.addEventListener('scroll', () => {
             const secciones = document.querySelectorAll('section');
