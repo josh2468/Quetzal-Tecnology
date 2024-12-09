@@ -6,6 +6,7 @@
     <title>Tienda de Productos - Inspirada en el Quetzal</title>
     <style>/* Estilo para la barra de navegación fija */
     /* Estilo para el título principal */
+        
         .titulo-seccion.grande {
             font-size: 2rem;
             font-weight: bold;
@@ -268,6 +269,12 @@
 
         /* Media Query para pantallas pequeñas */
         @media (max-width: 768px) {
+            
+            #Img{
+                width: 50%;
+                max-width: 300px;
+                height: auto;
+            }
 
             .titulo-seccion.grande {
                 font-size: 2rem; /* Reduce el tamaño de la fuente */
@@ -354,7 +361,7 @@
     <section id="inicio">
         <h1 class="titulo-seccion grande">Inicio</h1>
         <h2 class="subtitulo-seccion">Quetzal Technologies</h2>
-        <img src="Quetzal Reducido.webp">
+        <img id="Img" src="Quetzal Reducido.webp">
         <p class="texto-intro">
             Empresa Mexicana dedicada a la producción y distribución de componentes y accesorios de PC.
         </p>
