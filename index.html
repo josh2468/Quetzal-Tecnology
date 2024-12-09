@@ -505,11 +505,6 @@
             // Desplaza a la sección de productos
             const seccionProductos = document.getElementById('productos');
             seccionProductos.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave hacia la sección
-
-            // Ajustar la posición añadiendo un desplazamiento adicional de 30px
-            setTimeout(() => {
-                window.scrollBy(0, 30); // Baja 30px desde la posición actual
-            }, 500); // Espera que scrollIntoView termine
         }
 
         window.addEventListener('scroll', () => {
